@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="category">
+ 
+	<insert id="insert" parameterType="String">
+		<![CDATA[
+	insert  into category  (blog_id,reg_date)values(#{blog_id},now())	]]>
+	
+	</insert>
+	
+	<insert id="insertCategory" parameterType="categoryvo">
+		<![CDATA[
+	insert  into category  (name,description,blog_id,reg_date)values(#{name},#{description},#{blog_id},now()) 	]]>
+	 <selectKey keyProperty="no" resultType="int" order="AFTER">
+			<![CDATA[select last_insert_id()]]>
+		</selectKey>
+	
+	</insert>
+ 
+	<select id="getCategoryByBlogId" parameterType="categoryvo" resultType="categoryvo" >
+		<![CDATA[
+	select * from post p,category c where p.category_no=c.no and c.blog_id='kiscar' order by p.reg_date desc;
+	]]>
+	</select>
+	<select id="getList" parameterType="String" resultType="categoryvo" >
+		<![CDATA[
+ 	select * , (select count(*) from post p where p.category_no=c.no ) totalCount from category c where blog_id=#{0}
+ 	]]>
+	</select>
+	
+	<delete id="deleteCategory" parameterType="String">
+	delete from category where no=#{0}
+	</delete>
+</mapper>
