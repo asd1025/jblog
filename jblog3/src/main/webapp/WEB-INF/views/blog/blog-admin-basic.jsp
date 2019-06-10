@@ -48,7 +48,7 @@
 			      		<tr>
 			      			<td class="t">로고이미지</td>
 			      				<c:choose>
-			<c:when test="${blogVo.logo eq null}"><td><img src="../../../assets/img/images/spring-logo.jpg"></td>    </c:when>
+			<c:when test="${blogVo.logo eq null}"><td><img src="../assets/img/images/spring-logo.jpg"></td>    </c:when>
 			<c:otherwise><td><img src="${pageContext.request.contextPath}${blogVo.logo}"></td>     </c:otherwise>
 			</c:choose>
 			      			  			
