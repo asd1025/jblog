@@ -96,7 +96,7 @@ $(function(){
 							<form:errors path="id"/>	
 				</p>
   			<input id="btn-checkemail" type="button" value="id 중복체크">
- 			<img id="img-checkemail" style="display: none;" src="../assets/img/images/check.png">
+ 			<img id="img-checkemail" style="display: none;" src="${pageContext.request.contextPath}/assets/img/images/check.png">
  
 
 			<label class="block-label" for="password">패스워드</label>

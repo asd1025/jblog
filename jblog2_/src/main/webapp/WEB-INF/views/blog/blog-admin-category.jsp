@@ -84,7 +84,7 @@ function deleteCategory(no){
  					          $('#categorytable > tbody :last').
 					        append('<tr><td>'+ (count-idx)  +' </td><td>' +   vo.name  + '</td><td>'+vo.totalCount
 					        		+'</td><td>'+vo.description+"</td><td><a href='javascirpt:void(0);'"+" onclick='deleteCategory(" +vo.no+");'"+" return false;>"+
-					        		'<img src="../assets/img/images/delete.jpg"></a>'
+					        		'<img src="${pageContext.request.contextPath}/assets/img/images/delete.jpg"></a>'
 					        		+'</tr>');
   
 					    });
